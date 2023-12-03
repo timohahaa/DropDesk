@@ -6,7 +6,7 @@ from checkers.jupiter.checker import check_jupiter
 
 @app.route('/')
 def index():
-    return 'Main page'
+    return 'Main page', 200
 
 @app.route('/check/starknet', methods=["GET", "POST"])
 def starknet_check():
@@ -16,12 +16,12 @@ def starknet_check():
     try:
         wallets = payload['data']['wallets']
         if wallets is None:
-            return jsonify({"error_msg": "wallets array was not provided"})
+            return jsonify({"error_msg": "wallets array was not provided"}), 400
     except Exception as e:
-            return jsonify({"error_msg": "wallets array was not provided"})
+            return jsonify({"error_msg": "wallets array was not provided"}), 400
 
     resp = check_starknet(wallets)
-    return jsonify(resp)
+    return jsonify(resp), 200
 
 @app.route('/check/jupiter', methods=["GET", "POST"])
 def jupiter_check():
@@ -31,9 +31,9 @@ def jupiter_check():
     try:
         wallets = payload['data']['wallets']
         if wallets is None:
-            return jsonify({"error_msg": "wallets array was not provided"})
+            return jsonify({"error_msg": "wallets array was not provided"}), 400
     except Exception as e:
-            return jsonify({"error_msg": "wallets array was not provided"})
+            return jsonify({"error_msg": "wallets array was not provided"}), 400
 
     resp = check_jupiter(wallets)
-    return jsonify(resp)
+    return jsonify(resp), 200
