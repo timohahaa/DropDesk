@@ -1,11 +1,7 @@
 <template>
   <div class="container">
     <label for="walletInput">Enter Wallet:</label>
-    <input
-      v-model="walletInput"
-      id="walletInput"
-      placeholder="0x0140493189f65b15c09518D06Db1C95E179277Ab64FeA9e5435c3d7598AB54dd"
-    />
+    <input v-model="walletInput" id="walletInput" placeholder="send wallet" />
     <button @click="searchWallet">Search Wallet</button>
 
     <div v-if="result.length > 0">
