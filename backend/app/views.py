@@ -16,9 +16,9 @@ def starknet_check():
     try:
         wallets = payload['data']['wallets']
         if wallets is None:
-            return jsonify({"error_msg": "wallets array was not provided"}), 400
+            return jsonify({"error_msg": "wallets array was not provided"}), 200
     except Exception as e:
-            return jsonify({"error_msg": "wallets array was not provided"}), 400
+            return jsonify({"error_msg": "wallets array was not provided"}), 200
 
     resp = check_starknet(wallets)
     return jsonify(resp), 200
@@ -31,9 +31,9 @@ def jupiter_check():
     try:
         wallets = payload['data']['wallets']
         if wallets is None:
-            return jsonify({"error_msg": "wallets array was not provided"}), 400
+            return jsonify({"error_msg": "wallets array was not provided"}), 200
     except Exception as e:
-            return jsonify({"error_msg": "wallets array was not provided"}), 400
+            return jsonify({"error_msg": "wallets array was not provided"}), 200
 
     resp = check_jupiter(wallets)
     return jsonify(resp), 200

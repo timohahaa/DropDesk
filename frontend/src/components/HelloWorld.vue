@@ -19,7 +19,7 @@
           </tr>
         </thead>
         <tbody>
-          стралинк
+          Starlink
           <tr v-for="(item, index) in result" :key="index">
             <td>{{ item.address }}</td>
             <td>{{ item.balance }}</td>
@@ -36,7 +36,7 @@
           </tr>
         </thead>
         <tbody>
-          юпитер
+          Jupiter
           <tr v-for="(item, index) in resultJupiter" :key="index">
             <td>{{ item.address }}</td>
             <td>{{ item.balance }}</td>
