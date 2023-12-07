@@ -29,4 +29,20 @@ r.get('/zksync', async (req, res) => {
     }
 });
 
+r.get('/layerzero', async (req, res) => {
+    const address = req.body.address;
+
+    try {
+        const resp = await checkerService.checkLayerZero(address);
+        if (resp.status != 201) {
+            res.status(500).json({ "error": "could not retrieve LayerZero data" });
+        } else {
+            res.status(200).json(resp.data);
+        }
+    } catch (error) {
+        console.log(`[checkerRoutes - /zksync] - error: ${error.message}`);
+        res.status(500).json({ "error": "could not retrieve LayerZero data" });
+    }
+});
+
 export default r;
