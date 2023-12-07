@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import {SERVER_PORT} from './config.js';
-import checkerRoutes from './controllers/checker.js'
+import { SERVER_PORT } from './config.js';
+import checkerRoutes from './routes/checker.js'
 
 const port = SERVER_PORT;
 const app = express();
